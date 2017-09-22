@@ -1,0 +1,7 @@
+
+Windows7下使用SC命令删除服务：
+
+1、services.msc
+2、cmd
+3、sc delete 服务名
+4、再到服务管理器中，单击刷新按钮
