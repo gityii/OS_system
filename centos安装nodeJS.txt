@@ -1,0 +1,65 @@
+Centos 安装 NodeJS
+
+方法一：
+
+准备命令：
+yum -y install gcc make gcc-c++ openssl-devel wget
+
+到nodejs官网下载页，找到：
+Source Code    node-v6.11.4.tar.gz
+
+到\home下新建文件夹node，然后下载源码：
+wget https://nodejs.org/dist/v6.11.4/node-v6.11.4.tar.gz
+
+下载后的解压到/usr/local/node-v6.5.0-linux-x64/
+
+先到/usr/local路径下，然后mkdir  node-v6.11.4-linux-x64创建这个文件夹
+然后提取tar文件，如下所示:
+tar xvf node-v6.11.4.tar.gz   -C /usr/local/node-v6.11.4
+
+注意：解压目录和安装目录不是同一目录！！！
+
+配置、编译、安装：
+在/usr/local/node-v6.11.4/node-v6.11.4/执行
+[root@localhost node-v4.2.6]# ./configure --prefix=/usr/local/node   （指定安装路径，这是安装目录）
+
+[root@localhost node-v4.2.6]# make && make install
+
+
+配置Node环境：
+
+[root@localhost node-v4.2.6]# vim /etc/profile
+
+vim进入profile后，按下键盘i进入编辑模式，然后在文本最后面写下如下内容。
+
+export NODE_HOME=/usr/local/node
+export PATH=$NODE_HOME/bin:$PATH
+export NODE_PATH=$NODE_HOME/lib/node_modules:$PATH
+
+
+然后输入以下命令生效： source /etc/profile
+
+测试是否成功： node -v
+               npm -v
+
+输出版本号，说明nodeJS安装成功。这种方式是下载源码后编译安装。
+
+
+
+好像还有一种方法：（以后研究）
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
